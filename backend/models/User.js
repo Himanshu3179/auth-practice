@@ -15,11 +15,18 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    todos: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Todo',
+        },
+    ],
     role: {
         type: String,
         enum: ['admin', 'user'],
         default: 'user',
     },
+
 });
 
 userSchema.methods.matchPassword = async function (enteredPassword) {

@@ -5,6 +5,7 @@ const cors = require('cors');
 const { connectDB } = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const { errorHandler } = require('./middlewares/errorMiddleware');
+const todoRouter = require('./routes/todoRoutes');
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'API running...' });
 });
 app.use('/api/users', userRoutes);
+app.use('/api/todos', todoRouter);
 
 app.use(errorHandler);
 

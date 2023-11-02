@@ -5,6 +5,9 @@ import { useLogoutMutation } from "../redux/apiSlice";
 import { removeCredentials } from "../redux/userSlice";
 import toast from "react-hot-toast";
 
+import { useEffect } from "react";
+import { todoApiSlice } from "../redux/todoApiSlice";
+
 const Header = () => {
     const { userInfo } = useSelector((state) => state.user);
     const dispatch = useDispatch();
@@ -12,10 +15,17 @@ const Header = () => {
 
     const [logout] = useLogoutMutation();
 
+    useEffect(() => {
+        if (userInfo) {
+            toast.success("User logged in");
+        }
+    }, [userInfo]);
+
     const logoutHandler = async () => {
         try {
             await logout().unwrap();
             dispatch(removeCredentials());
+            dispatch(todoApiSlice.util.resetApiState()); // Add this line
             toast.success("Logout successful");
             navigate("/login");
         } catch (err) {
@@ -24,7 +34,9 @@ const Header = () => {
     };
 
     return (
-        <div className="bg-blue-500 p-4 absolute w-full">
+        <div className="bg-blue-500 p-4 fixed w-full
+            z-20
+        ">
             <div className="container mx-auto flex justify-between items-center">
                 {/* App name on the left */}
                 <Link to="/" className="text-white text-xl font-bold">
@@ -56,6 +68,14 @@ const Header = () => {
                     {/* show profile and logout if logged in */}
                     {userInfo && (
                         <>
+                            <li>
+                                <Link
+                                    to="/todos"
+                                    className="text-white hover:underline"
+                                >
+                                    Todos
+                                </Link>
+                            </li>
                             <li>
                                 <Link
                                     to="/profile"

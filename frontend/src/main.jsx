@@ -19,6 +19,8 @@ import store from './redux/store.js'
 import ForgotPasswordPage from './pages/ForgotPassword.jsx'
 import PasswordReset from './pages/PasswordReset.jsx'
 import { NotFound } from './pages/NotFound.jsx'
+import TodoScreen from './pages/TodoScreen.jsx'
+import OneTodo from './pages/OneTodo.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,8 +33,10 @@ const router = createBrowserRouter(
       <Route path='/passwordReset' element={<PasswordReset />} />
       <Route path='' element={<PrivateRoute />}>
         <Route path='/profile' element={<ProfileScreen />} />
+        <Route path='/todos' element={<TodoScreen />} />
+        <Route path='/todo/:id' element={<OneTodo />} />
       </Route>
-      <Route path='*' element={<NotFound/>} />
+      <Route path='*' element={<NotFound />} />
     </Route>
   )
 );
