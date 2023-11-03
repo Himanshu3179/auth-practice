@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://auth-practice-chi.vercel.app/"
+      "destination": "https://auth-practice-chi.vercel.app/$1"
     },
     {
       "source": "/api",
