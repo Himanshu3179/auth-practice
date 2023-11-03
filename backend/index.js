@@ -6,6 +6,7 @@ const { connectDB } = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const { errorHandler } = require('./middlewares/errorMiddleware');
 const todoRouter = require('./routes/todoRoutes');
+const adminRouter = require('./routes/adminRoutes');
 
 const app = express();
 app.use(express.json());
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 });
 app.use('/api/users', userRoutes);
 app.use('/api/todos', todoRouter);
+app.use('/api/admin', adminRouter);
 
 app.use(errorHandler);
 

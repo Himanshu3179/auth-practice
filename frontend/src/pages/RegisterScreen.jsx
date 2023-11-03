@@ -46,38 +46,66 @@ const RegisterScreen = () => {
 
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-200">
-      <form onSubmit={submitHandler} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="flex justify-center items-center h-screen bg-gray-900 text-white">
+      <form onSubmit={submitHandler} className="bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4 text-center">
-          <h1 className="block text-gray-700 text-xl font-bold mb-2">Sign Up</h1>
+          <h1 className="block text-gray-300 text-xl font-bold mb-2">Sign Up</h1>
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+          <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="name">
             Name
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="name" id="name" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
+          <input
+            className="bg-gray-700 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+            type="name"
+            id="name"
+            placeholder="Enter name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+          <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="email">
             Email Address
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input
+            className="bg-gray-700 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+            type="email"
+            id="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+          <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="password">
             Password
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" id="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input
+            className="bg-gray-700 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-white mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmPassword">
+          <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="confirmPassword">
             Confirm Password
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" id="confirmPassword" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+          <input
+            className="bg-gray-700 shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-white mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
         </div>
 
         {/* loading */}
@@ -87,16 +115,22 @@ const RegisterScreen = () => {
         {/* success */}
         {isSuccess && <div className="text-green-500">Signup Success</div>}
 
-        <div className="flex items-center justify-center ">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-            Register
-          </button>
+        <div className="flex items-center justify-center">
+          {isLoading ? (
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              Registering...
+            </button>
+          ) : (
+            <button className="bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              Register
+            </button>
+          )}
         </div>
 
         <div className="mt-4">
           <div className="text-center">
             Already have an account? {' '}
-            <a href="/login" className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+            <a href="/login" className="inline-block align-baseline font-bold text-sm text-blue-300 hover:text-blue-200">
               Sign In
             </a>
           </div>

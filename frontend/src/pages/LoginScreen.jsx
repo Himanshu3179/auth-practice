@@ -10,7 +10,7 @@ const LoginScreen = () => {
 
   const dispatch = useDispatch()
   const { userInfo } = useSelector(state => state.user)
-  const [login] = useLoginMutation()
+  const [login, { isLoading }] = useLoginMutation()
   const navigate = useNavigate();
 
 
@@ -36,7 +36,7 @@ const LoginScreen = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-full bg-gray-900 text-white">
+    <div className="flex justify-center items-center h-full bg-gray-900  text-white">
       <form onSubmit={submitHandler} className="bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4 text-center">
           <h1 className="block text-gray-300 text-xl font-bold mb-2">LogIn</h1>
@@ -78,12 +78,24 @@ const LoginScreen = () => {
         </div>
 
         <div className="flex items-center justify-center">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            LogIn
-          </button>
+          {
+            isLoading ?
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+                disabled
+              >
+                Logging In...
+              </button>
+              :
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+              >
+                LogIn
+              </button>
+
+          }
         </div>
 
         <div className="mt-4">

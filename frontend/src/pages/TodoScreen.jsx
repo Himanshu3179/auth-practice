@@ -1,17 +1,32 @@
+/* eslint-disable react/jsx-key */
 import TodoForm from "../components/TodoForm"
-import AllTodos from "../components/AllTodos"
+import { useGetTodosQuery } from "../redux/todoApiSlice";
+import TodoItem from "../components/TodoItem";
+
 
 const TodoScreen = () => {
+    const { data, isLoading } = useGetTodosQuery();
+
+
+    if (isLoading) return <div className="pt-96">Loading...</div>
     return (
-        <div className="flex flex-col items-center justify-center text-white  pb-12 ">
-            <div className="fixed top-14 left-0 right-0 flex flex-col bg-slate-800  items-center  max-w-4xl mx-auto z-10 p-5">
-                <h1 className="text-4xl font-bold mb-8">Todo Screen</h1>
-                <div className="w-full max-w-2xl">
+        <div className="bg-[#172842] min-h-screen py-8">
+            <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+                <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
+                <div className="mb-4">
+                    {/* Todo form goes here */}
                     <TodoForm />
                 </div>
-            </div>
-            <div className="w-full max-w-3xl mt-4 pt-40">
-                <AllTodos />
+                <div className="flex flex-wrap gap-y-3">
+                    {/*Loop and Add TodoItem here */}
+                    {data && data.map((todo) => (
+                        <div key={todo._id}
+                            className='w-full'
+                        >
+                            <TodoItem todo={todo} />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

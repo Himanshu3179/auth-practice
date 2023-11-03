@@ -8,6 +8,7 @@ todoRouter.get('/test', (req, res) => {
     res.json({ message: 'API running...' });
 });
 
+
 todoRouter
     .route('/')
     .get(authMiddleware, getTodos)

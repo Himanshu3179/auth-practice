@@ -21,6 +21,7 @@ exports.signup = asyncHandler(async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role
     });
 
 });
@@ -41,6 +42,7 @@ exports.login = asyncHandler(async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role
     });
 })
 
@@ -55,6 +57,7 @@ exports.getUserprofile = asyncHandler(async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role
     });
 })
 

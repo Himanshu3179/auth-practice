@@ -21,6 +21,8 @@ import PasswordReset from './pages/PasswordReset.jsx'
 import { NotFound } from './pages/NotFound.jsx'
 import TodoScreen from './pages/TodoScreen.jsx'
 import OneTodo from './pages/OneTodo.jsx'
+import AdminPage from './pages/AdminPage.jsx'
+import AdminRoute from './components/AdminRoute.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +38,10 @@ const router = createBrowserRouter(
         <Route path='/todos' element={<TodoScreen />} />
         <Route path='/todo/:id' element={<OneTodo />} />
       </Route>
+      <Route path='' element={<AdminRoute />}>
+        <Route path='/admin' element={<AdminPage />} />
+      </Route>
+
       <Route path='*' element={<NotFound />} />
     </Route>
   )

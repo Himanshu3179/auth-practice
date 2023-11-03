@@ -5,7 +5,6 @@ import { useLogoutMutation } from "../redux/apiSlice";
 import { removeCredentials } from "../redux/userSlice";
 import toast from "react-hot-toast";
 
-import { useEffect } from "react";
 import { todoApiSlice } from "../redux/todoApiSlice";
 
 const Header = () => {
@@ -15,11 +14,6 @@ const Header = () => {
 
     const [logout] = useLogoutMutation();
 
-    useEffect(() => {
-        if (userInfo) {
-            toast.success("User logged in");
-        }
-    }, [userInfo]);
 
     const logoutHandler = async () => {
         try {
@@ -40,7 +34,7 @@ const Header = () => {
             <div className="container mx-auto flex justify-between items-center">
                 {/* App name on the left */}
                 <Link to="/" className="text-white text-xl font-bold">
-                    Authentication App
+                    Todo App
                 </Link>
                 <ul className="flex space-x-4">
                     {/* if not logged in show signup and login button */}
@@ -94,6 +88,19 @@ const Header = () => {
                             </li>
                         </>
                     )}
+                    {userInfo?.role === "admin" && (
+                        <li>
+                            <Link
+                                to="/admin"
+                                className="text-red-700 font-bold hover:underline"
+                            >
+                                Admin Page
+                            </Link>
+                        </li>
+                    )}
+
+
+
                 </ul>
             </div>
         </div>

@@ -33,7 +33,7 @@ function App() {
     return (
       <div className='max-w-screen w-screen min-h-screen bg-slate-800'>
         <Header />
-        <div className='pt-16 max-w-screen w-screen bg-slate-800 h-screen'>
+        <div className='pt-16 max-w-screen  bg-slate-800 '>
           <div className="flex items-center justify-center bg-gray-50 dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8">
             <h1 className="text-2xl text-center text-blue-500 dark:text-white">
               <span className="font-bold">Backend is down </span>
@@ -46,7 +46,7 @@ function App() {
   return (
     <div className='max-w-screen min-h-screen bg-slate-800'>
       <Header />
-      <div className='pt-16 max-w-screen  bg-slate-800 '>
+      <div className='pt-16 max-w-screen  bg-slate-700  h-screen'>
         <Outlet />
       </div>
       <Toaster
