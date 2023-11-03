@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://auth-practice-chi.vercel.app/"
+    },
+    {
+      "source": "/api",
+      "destination": "https://auth-practice-chi.vercel.app/"
+    }
+  ]
+}
