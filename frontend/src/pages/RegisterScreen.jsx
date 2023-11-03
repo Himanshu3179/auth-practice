@@ -15,7 +15,7 @@ const RegisterScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const { userInfo } = useSelector(state => state.user)
-  const [signup, { isLoading, error, isSuccess }] = useSignupMutation()
+  const [signup, { isLoading }] = useSignupMutation()
 
   useEffect(() => {
     if (userInfo) {
@@ -39,11 +39,10 @@ const RegisterScreen = () => {
         navigate('/')
       } catch (error) {
         console.log(error)
-        toast.error(error.data);
+        toast.error(error.data.message);
       }
     }
   }
-
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-900 text-white">
@@ -107,13 +106,6 @@ const RegisterScreen = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-
-        {/* loading */}
-        {isLoading && <div className="text-blue-500">Loading...</div>}
-        {/* error */}
-        {error && <div className="text-red-500">{error}</div>}
-        {/* success */}
-        {isSuccess && <div className="text-green-500">Signup Success</div>}
 
         <div className="flex items-center justify-center">
           {isLoading ? (

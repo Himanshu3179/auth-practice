@@ -12,15 +12,15 @@ const AdminPage = () => {
     return (
         <div className="text-white">
             <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Users</h1>
-            <div className="flex flex-wrap gap-y-3">
+            <div className="flex flex-wrap gap-y-3 justify-evenly">
                 {/*Loop and Add TodoItem here */}
                 {data && data.map((user) => (
                     <div key={user._id}
-                        className='w-full'
+                        className='w-fit'
                     >
                         <div className="bg-gray-800 shadow-md rounded-lg px-4 py-3 text-white">
                             <h1 className="text-2xl font-bold text-center mb-8 mt-2">User : {user._id}</h1>
-                            <div className="mb-4 flex justify-between">
+                            <div className="mb-4 ">
                                 <p className="text-gray-300 text-sm font-bold mb-2">Name: {user.name}</p>
                                 <p className="text-gray-300 text-sm font-bold mb-2">Email: {user.email}</p>
                                 <p className="text-gray-300 text-sm font-bold mb-2">Role: {user.role}</p>
