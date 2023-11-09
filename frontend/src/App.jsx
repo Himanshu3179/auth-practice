@@ -12,7 +12,7 @@ function App() {
     // check if backend is up
     const checkBackend = async () => {
       try {
-        const res = await fetch('/api');
+        const res = await fetch('api/');
         const data = await res.json();
         console.log(data);
 

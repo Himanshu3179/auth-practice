@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: "https://auth-practice-git-master-himanshus-projects-e89a034b.vercel.app/",
+        target: "http://localhost:5000/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
