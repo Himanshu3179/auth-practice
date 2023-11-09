@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Header from './components/Header';
 import { Toaster } from 'react-hot-toast';
 import { useEffect, useState } from 'react';
+import { BACKEND_URL } from '../conf';
 
 
 function App() {
@@ -12,14 +13,13 @@ function App() {
     // check if backend is up
     const checkBackend = async () => {
       try {
-        const res = await fetch('api/');
+        const res = await fetch(BACKEND_URL);
+        console.log(res);
         const data = await res.json();
         console.log(data);
-
         if (res.status === 200) {
           setIsError(false);
         }
-
       } catch (error) {
         console.log("backend is down", error);
         setIsError(true);

@@ -1,9 +1,10 @@
 import { fetchBaseQuery, createApi } from '@reduxjs/toolkit/query/react';
+import { BACKEND_URL } from '../../conf';
 
 
-const USERS_URL = '/api/users'
+const USERS_URL = BACKEND_URL + 'api/users'
 
-const baseQuery = fetchBaseQuery({ baseUrl: '/api' })
+const baseQuery = fetchBaseQuery({ baseUrl: '' })
 
 export const apiSlice = createApi({
     baseQuery,

@@ -1,7 +1,8 @@
 import { fetchBaseQuery, createApi } from '@reduxjs/toolkit/query/react';
-const TODOS_URL = '/api/todos'
+import { BACKEND_URL } from '../../conf';
+const TODOS_URL = BACKEND_URL + 'api/todos'
 
-const baseQuery = fetchBaseQuery({ baseUrl: '/api' })
+const baseQuery = fetchBaseQuery({ baseUrl: '' })
 
 export const todoApiSlice = createApi({
     baseQuery,

@@ -1,7 +1,8 @@
 import { fetchBaseQuery, createApi } from '@reduxjs/toolkit/query/react';
-const ADMIN_URL = '/api/admin'
+import { BACKEND_URL } from '../../conf';
+const ADMIN_URL = BACKEND_URL + 'api/admin'
 
-const baseQuery = fetchBaseQuery({ baseUrl: '/api' })
+const baseQuery = fetchBaseQuery({ baseUrl: '' })
 
 export const adminApiSlice = createApi({
     baseQuery,
